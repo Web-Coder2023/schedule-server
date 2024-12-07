@@ -10,7 +10,21 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://45.67.58.204:3000'
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Разрешаем запросы с указанных источников, если origin присутствует в allowedOrigins
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true); // null - отсутствие ошибок, true - разрешение запроса
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  }));
 app.use(express.json());
 
 // Подключение к MongoDB
