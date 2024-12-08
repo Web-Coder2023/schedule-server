@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
         enum: ["user", "admin"],
     },
     avatar: String,
+    isConfirmed: {
+        type: Boolean,
+        default: false,  // Аккаунт не подтвержден по умолчанию
+    },
 }, {
     timestamps: true,
 });
