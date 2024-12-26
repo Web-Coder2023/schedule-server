@@ -25,7 +25,6 @@ const userSchema = new mongoose.Schema({
         default: "user",
         enum: ["user", "admin"],
     },
-    avatar: String,
     isConfirmed: {
         type: Boolean,
         default: false,  // Аккаунт не подтвержден по умолчанию

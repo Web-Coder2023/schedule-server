@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 // Генерация токена
 const generateToken = (userId, role) => {
     return jwt.sign({ id: userId, role: role }, process.env.JWT_SECRET, {
-        expiresIn: "1h", // Устанавливаем срок действия токена на 1 час
+        expiresIn: "1d", // Устанавливаем срок действия токена на 1 час
     });
 };
 
